@@ -6,7 +6,7 @@
   "publisher": "archit",
   "repository": {
     "type": "git",
-    "url": "https://github.com/archit/frontend-flow-diff.git"
+    "url": "https://github.com/archit1496/Frontend-Flow-Diff"
   },
   "engines": {
     "vscode": "^1.85.0"
