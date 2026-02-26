@@ -1,0 +1,82 @@
+{
+  "name": "frontend-flow-diff",
+  "displayName": "Frontend Flow Diff",
+  "description": "Shows how a change alters UI behavior (states, routes, API calls, copy) with a human-readable PR summary",
+  "version": "0.1.0",
+  "publisher": "archit",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/archit/frontend-flow-diff.git"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other",
+    "Formatters",
+    "Testing"
+  ],
+  "activationEvents": [
+    "onCommand:frontendFlowDiff.diffCurrentFile",
+    "onCommand:frontendFlowDiff.showBehavioralDiffFromDiffEditor"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "frontendFlowDiff.diffCurrentFile",
+        "title": "Frontend Flow Diff: Diff current file against HEAD"
+      },
+      {
+        "command": "frontendFlowDiff.showBehavioralDiffFromDiffEditor",
+        "title": "Frontend Flow Diff: Show behavioral diff (from diff editor)"
+      }
+    ],
+    "configuration": {
+      "title": "Frontend Flow Diff",
+      "properties": {
+        "frontendFlowDiff.includeCopyChanges": {
+          "type": "boolean",
+          "default": true,
+          "description": "Include copy/text changes in the behavioral diff"
+        },
+        "frontendFlowDiff.includeApiCalls": {
+          "type": "boolean",
+          "default": true,
+          "description": "Include API call changes"
+        },
+        "frontendFlowDiff.includeRoutes": {
+          "type": "boolean",
+          "default": true,
+          "description": "Include navigation/route changes"
+        },
+        "frontendFlowDiff.includeUiStates": {
+          "type": "boolean",
+          "default": true,
+          "description": "Include UI state (conditional) changes"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src --ext ts",
+    "cli": "node out/cli.js",
+    "package:vsix": "npm run compile && npx vsce package",
+    "publish:vsix": "npx vsce publish"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@vscode/vsce": "^3.2.1",
+    "@types/vscode": "^1.85.0",
+    "@typescript-eslint/eslint-plugin": "^6.13.0",
+    "@typescript-eslint/parser": "^6.13.0",
+    "eslint": "^8.54.0",
+    "typescript": "^5.3.0"
+  },
+  "dependencies": {
+    "typescript": "^5.3.0"
+  }
+}
