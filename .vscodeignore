@@ -3,7 +3,12 @@ src/**
 .gitignore
 **/*.map
 **/*.ts
-!out/**/*.js
+out/extension.js
+out/extension.js.map
+out/analysis
+out/cli.js
+out/cli.js.map
+!out/main.js
 *.md
 !README.md
 tsconfig.json
